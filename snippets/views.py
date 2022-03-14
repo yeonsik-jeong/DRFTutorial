@@ -18,8 +18,10 @@ from snippets.permissions import IsOwnerOrReadOnly
 @api_view(['GET'])  # Important for rendering
 def apiIndex(request, format=None):
     return Response({
-        'users': reverse('userList', request=request, format=format),
-        'snippets': reverse('snippetList', request=request, format=format)
+        'users': reverse('snippets:userList', request=request, format=format),
+        'snippets': reverse('snippets:snippetList', request=request, format=format),
+        'signup': reverse('authentication:signup', request=request, format=format),
+        'login': reverse('authentication:login', request=request, format=format),
     })
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):

@@ -19,4 +19,5 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('snippets.urls')),  # Yeonsik
+    path('authentication/', include('authentication.urls')),  # Yeonsik
 ]

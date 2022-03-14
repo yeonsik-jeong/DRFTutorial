@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-)l#(nf(_f1sh%8=4h)=@ai@f%%(li7u)phbpv1iq_=q1z@p8-5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1', 
+    '10.0.2.2',  # For Android emulator access
+]
 
 
 # Application definition
@@ -38,7 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',  # Yeonsik
+    'rest_framework.authtoken', # Yeonsik
     'snippets.apps.SnippetsConfig',  # Yeonsik
+    'authentication.apps.AuthenticationConfig',  # Yeonsik
 ]
 
 MIDDLEWARE = [
@@ -126,5 +132,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 10,
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
 }

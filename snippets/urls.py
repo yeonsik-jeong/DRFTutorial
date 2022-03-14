@@ -4,6 +4,8 @@ from rest_framework import renderers
 from rest_framework.routers import DefaultRouter
 from snippets import views
 
+app_name = 'snippets'
+
 """ 
 router = DefaultRouter()
 router.register(r'snippets', views.SnippetViewSet)
@@ -13,7 +15,6 @@ urlpatterns = [
     path('', include(router.urls)),
 ] 
 """
-
  
 snippet_list = views.SnippetViewSet.as_view({
     'get': 'list',
@@ -48,7 +49,6 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('', views.apiIndex),
 ] 
-
 
 """
 urlpatterns = [
